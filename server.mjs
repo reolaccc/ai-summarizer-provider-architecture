@@ -6,6 +6,7 @@ import { createServer as createViteServer } from "vite";
 import { createSpendLedger } from "./services/spendLedger.js";
 import { createChatRouter } from "./routes/chat.js";
 import { createSummarizeRouter } from "./routes/summarize.js";
+import { MAX_INPUT_CHARACTERS, MAX_INPUT_TOKENS } from "./src/lib/limits.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +26,10 @@ app.get("/api/health", (_req, res) => {
 
   res.json({
     ok: true,
+    limits: {
+      maxInputCharacters: MAX_INPUT_CHARACTERS,
+      maxInputTokens: MAX_INPUT_TOKENS,
+    },
     providers: {
       requested: {
         summary: process.env.SUMMARY_PROVIDER || process.env.LLM_PROVIDER || "openai",
