@@ -16,7 +16,8 @@ const ledgerPath = path.resolve(__dirname, "spend-ledger.json");
 const app = express();
 const spendLedger = createSpendLedger(ledgerPath);
 
-app.use(express.json({ limit: "1mb" }));
+// Supports large pasted inputs (e.g. ebooks). Keep spend + token guards enabled server-side.
+app.use(express.json({ limit: "10mb" }));
 
 app.get("/api/health", (_req, res) => {
   const openaiConfigured = Boolean(process.env.OPENAI_API_KEY?.trim());
