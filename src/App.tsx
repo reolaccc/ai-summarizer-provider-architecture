@@ -33,7 +33,7 @@ type ChatMessage = {
   content: string;
 };
 
-const DEFAULT_TITLE = "AI Summarizer";
+const DEFAULT_TITLE = "BriefMind";
 
 export default function App() {
   const [inputValue, setInputValue] = useState("");
@@ -279,7 +279,7 @@ export default function App() {
         <header className="rounded-[2rem] border border-fuchsia-400/20 bg-white/6 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur">
           <div className="max-w-3xl">
             <h1 className="text-5xl font-black tracking-tight text-fuchsia-50 drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] sm:text-7xl">
-              AI Summarizer
+              BriefMind
             </h1>
             <p className="mt-3 text-lg font-medium leading-7 text-fuchsia-100/80 sm:text-xl">
               Understand long content and uncover deep insights in minutes.
