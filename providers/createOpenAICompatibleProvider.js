@@ -2,7 +2,7 @@ import OpenAI from "openai";
 
 export function createOpenAICompatibleProvider(providerConfig) {
   const apiKey = process.env[providerConfig.apiKeyEnv]?.trim();
-  const baseURL = process.env[providerConfig.baseUrlEnv]?.trim();
+  const baseURL = process.env[providerConfig.baseUrlEnv]?.trim() || providerConfig.defaultBaseUrl || "";
   const client = apiKey
     ? new OpenAI({
         apiKey,

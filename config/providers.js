@@ -11,6 +11,7 @@ const PROVIDER_CONFIGS = {
     label: "DeepSeek",
     apiKeyEnv: "DEEPSEEK_API_KEY",
     baseUrlEnv: "DEEPSEEK_BASE_URL",
+    defaultBaseUrl: "https://api.deepseek.com",
     status: "skeleton",
   },
 };

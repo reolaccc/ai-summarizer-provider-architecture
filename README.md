@@ -35,6 +35,7 @@ OPENAI_API_KEY=
 DEEPSEEK_API_KEY=
 
 OPENAI_BASE_URL=
+# Optional. DeepSeek defaults to https://api.deepseek.com in code.
 DEEPSEEK_BASE_URL=
 
 SUMMARY_MODEL=
@@ -54,6 +55,7 @@ Recommended split for this project:
 - Summary uses `deepseek` because it can tolerate slight formatting drift and usually handles long inputs cost-effectively
 - Chat uses `openai` because follow-up answers benefit more from stronger instruction following and consistency
 - You can still switch either one later without touching frontend code
+- DeepSeek usage and billing are managed in the DeepSeek Platform dashboard: https://platform.deepseek.com/sign_in
 
 ## Setup
 

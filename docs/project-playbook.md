@@ -33,6 +33,7 @@ CHAT_PROVIDER=openai
 OPENAI_API_KEY=
 DEEPSEEK_API_KEY=
 OPENAI_BASE_URL=
+# DeepSeek defaults to https://api.deepseek.com in code, so this is optional.
 DEEPSEEK_BASE_URL=
 SUMMARY_MODEL=
 CHAT_MODEL=

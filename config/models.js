@@ -4,8 +4,8 @@ const DEFAULT_MODELS = {
     chat: "gpt-5.4-mini",
   },
   deepseek: {
-    summary: "deepseek-chat",
-    chat: "deepseek-chat",
+    summary: "deepseek-v4-flash",
+    chat: "deepseek-v4-flash",
   },
 };
 
