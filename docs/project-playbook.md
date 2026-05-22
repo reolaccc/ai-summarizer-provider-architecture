@@ -16,10 +16,10 @@ This document is for keeping the experimental architecture isolated, safe, and e
 
 ## Recommended Domain Setup
 
-- Use a separate public domain for the new product.
+- Start with Render's free `onrender.com` subdomain for the new product.
 - Do not point the experimental product at the stable app's current domain.
 - Keep DNS records, SSL certificates, and Render custom domains isolated per product.
-- If you later promote the experiment, switch the new domain intentionally instead of reusing the old one casually.
+- If you later decide to buy a custom domain, add it deliberately and separately.
 - Treat domain separation as part of release safety, not just branding.
 
 ## Recommended Environment Strategy
@@ -59,6 +59,7 @@ Guidelines:
 - Keep provider-specific behavior inside `providers/`.
 - Keep prompt text out of routes.
 - Keep output cleanup in `utils/normalizeOutput.js`.
+- Keep the free `onrender.com` URL active until you intentionally choose a custom domain.
 
 ## Promotion Checklist
 
@@ -68,4 +69,4 @@ If this experiment becomes the new direction:
 - Confirm the provider split is still correct.
 - Decide whether to promote the experimental repo or port the changes back deliberately.
 - Only then consider replacing the stable app's deploy target.
-- Only then decide whether the old domain should redirect to the new one or remain attached to the stable app.
+- Only then decide whether to keep using the free `onrender.com` URL or move to a custom domain.

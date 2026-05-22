@@ -65,10 +65,10 @@ Guidance:
 
 ## Phase 5: Use A Separate Domain
 
-1. Choose a new public domain for the experimental product.
+1. Use the service's free `onrender.com` URL first.
 2. Do not point it at the stable app's existing domain.
-3. Configure DNS for the new domain only.
-4. Attach the new domain to the new Render service.
+3. Skip custom domains until you actually need a branded domain.
+4. If you later buy a domain, attach that new domain only to this new service.
 5. Keep SSL/certificate setup isolated to the new product.
 
 ## Phase 6: Promote Deliberately

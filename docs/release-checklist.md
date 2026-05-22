@@ -23,12 +23,13 @@ Use this checklist when the experimental architecture is ready to become a produ
 
 ## Domain
 
-- Use a different public domain for the new product.
+- Use the free Render `onrender.com` URL first.
 - Do not reuse the stable app's primary domain.
-- Set DNS and SSL intentionally for the new product only.
+- Only add a paid/custom domain later if you actually need branding.
+- Set DNS and SSL intentionally only if you introduce a custom domain.
 
 ## Promotion
 
 - Move traffic deliberately.
-- If you want the old domain to redirect, do that as a separate change.
+- If you want a custom domain later, do that as a separate change.
 - If the experiment is not ready, keep it isolated and keep iterating.
