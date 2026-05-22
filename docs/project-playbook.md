@@ -28,7 +28,7 @@ Start with these variables in the experimental project:
 
 ```env
 LLM_PROVIDER=openai
-SUMMARY_PROVIDER=deepseek
+SUMMARY_PROVIDER=openai
 CHAT_PROVIDER=openai
 OPENAI_API_KEY=
 DEEPSEEK_API_KEY=
@@ -42,8 +42,19 @@ OPENAI_MOCK_RESPONSES=false
 Guidelines:
 
 - Keep `OPENAI_API_KEY` in place for the validated path.
-- Add `DEEPSEEK_API_KEY` only in the experimental environment.
+- Add `DEEPSEEK_API_KEY` only when you are ready to try DeepSeek.
 - Use the same frontend contract, but keep provider selection backend-only.
+
+## Enable DeepSeek For Summary Later
+
+When you have a DeepSeek API key and want Summary to use DeepSeek while Chat stays on OpenAI:
+
+- In Render `Environment`, set `DEEPSEEK_API_KEY` to your DeepSeek key.
+- Set `SUMMARY_PROVIDER=deepseek`.
+- Keep `CHAT_PROVIDER=openai`.
+- Wait for redeploy, then confirm:
+  - `GET /api/health` shows `requested.summary=deepseek`, `requested.chat=openai`.
+  - `configured.deepseek=true`, `configured.openai=true`.
 
 ## Recommended Branching Workflow
 

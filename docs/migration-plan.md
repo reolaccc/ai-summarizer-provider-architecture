@@ -37,7 +37,7 @@ Use the experimental project's own environment settings:
 
 ```env
 LLM_PROVIDER=openai
-SUMMARY_PROVIDER=deepseek
+SUMMARY_PROVIDER=openai
 CHAT_PROVIDER=openai
 OPENAI_API_KEY=
 DEEPSEEK_API_KEY=

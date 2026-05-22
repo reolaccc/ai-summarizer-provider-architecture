@@ -5,7 +5,7 @@ Use this checklist when the experimental architecture is ready to become a produ
 ## Before Release
 
 - Confirm the experiment still passes build and smoke tests.
-- Confirm `SUMMARY_PROVIDER=deepseek` and `CHAT_PROVIDER=openai` are still the intended defaults.
+- Confirm the intended provider routing defaults (OpenAI-only is fine until DeepSeek is configured).
 - Confirm the frontend still only uses `/api/summarize` and `/api/chat`.
 - Confirm the stable app is still running separately.
 
@@ -20,6 +20,15 @@ Use this checklist when the experimental architecture is ready to become a produ
 - Create a separate Render web service for this product.
 - Use separate environment variables from the stable app.
 - Keep the stable service untouched until the new service is verified.
+
+## Optional: DeepSeek Summary Split
+
+If you later want Summary on DeepSeek and Chat on OpenAI:
+
+- Set `DEEPSEEK_API_KEY` in Render.
+- Set `SUMMARY_PROVIDER=deepseek`.
+- Keep `CHAT_PROVIDER=openai`.
+- Verify `GET /api/health` reflects the requested + configured providers.
 
 ## Domain
 
