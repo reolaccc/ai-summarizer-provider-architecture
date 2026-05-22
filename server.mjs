@@ -18,6 +18,25 @@ const spendLedger = createSpendLedger(ledgerPath);
 
 app.use(express.json({ limit: "1mb" }));
 
+app.get("/api/health", (_req, res) => {
+  const openaiConfigured = Boolean(process.env.OPENAI_API_KEY?.trim());
+  const deepseekConfigured = Boolean(process.env.DEEPSEEK_API_KEY?.trim());
+
+  res.json({
+    ok: true,
+    providers: {
+      requested: {
+        summary: process.env.SUMMARY_PROVIDER || process.env.LLM_PROVIDER || "openai",
+        chat: process.env.CHAT_PROVIDER || process.env.LLM_PROVIDER || "openai",
+      },
+      configured: {
+        openai: openaiConfigured,
+        deepseek: deepseekConfigured,
+      },
+    },
+  });
+});
+
 app.use("/api", createSummarizeRouter({ spendLedger }));
 app.use("/api", createChatRouter({ spendLedger }));
 

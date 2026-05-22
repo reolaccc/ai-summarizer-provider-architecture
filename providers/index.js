@@ -16,9 +16,23 @@ export function getProviderForTask(task) {
     throw Object.assign(new Error(`Unsupported provider "${providerName}".`), { status: 400 });
   }
 
+  const allowFallback = process.env.ALLOW_PROVIDER_FALLBACK !== "false";
+  const provider = factory();
+
+  if (allowFallback && providerName !== "openai" && !provider.isConfigured()) {
+    const fallback = createOpenAIProvider();
+    return {
+      providerName: "openai",
+      requestedProviderName: providerName,
+      model: getModelForTask("openai", task),
+      provider: fallback,
+    };
+  }
+
   return {
     providerName,
+    requestedProviderName: providerName,
     model: getModelForTask(providerName, task),
-    provider: factory(),
+    provider,
   };
 }

@@ -10,6 +10,10 @@ export function createOpenAICompatibleProvider(providerConfig) {
       })
     : null;
 
+  function isConfigured() {
+    return Boolean(client);
+  }
+
   function ensureConfigured() {
     if (!client) {
       throw Object.assign(
@@ -40,6 +44,7 @@ export function createOpenAICompatibleProvider(providerConfig) {
     name: providerConfig.name,
     label: providerConfig.label,
     status: providerConfig.status,
+    isConfigured,
     ensureConfigured,
     generateSummary: runResponseRequest,
     generateChat: runResponseRequest,
