@@ -26,15 +26,24 @@ export function createOpenAICompatibleProvider(providerConfig) {
   async function runResponseRequest({ model, instructions, input, temperature = 0 }) {
     ensureConfigured();
 
-    const response = await client.responses.create({
+    const messages = [];
+
+    if (instructions) {
+      messages.push({ role: "system", content: instructions });
+    }
+
+    messages.push({ role: "user", content: input });
+
+    const response = await client.chat.completions.create({
       model,
       temperature,
-      instructions,
-      input,
+      messages,
     });
 
+    const outputText = response?.choices?.[0]?.message?.content ?? "";
+
     return {
-      outputText: response.output_text ?? "",
+      outputText,
       usage: response.usage,
       raw: response,
     };
